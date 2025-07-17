@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>ComidApp — Detalle del Proyecto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:600,400|Lora:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main: #23272e;
+      --accent: #3dc6c1;
+      --bg: #fcfcfd;
+      --text: #232323;
+      --sub: #777;
+      --card: #fff;
+      --shadow: 0 4px 32px 0 rgba(60,70,90,0.09);
+      --radius: 1.2rem;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--text);
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 38px 16px 24px 16px;
+    }
+    .back-link {
+      color: var(--sub);
+      font-size: 1rem;
+      text-decoration: none;
+      margin-bottom: 28px;
+      display: inline-block;
+      transition: color .2s;
+    }
+    .back-link:hover { color: var(--accent);}
+    .title {
+      font-family: 'Lora', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--main);
+      margin: 0 0 12px 0;
+    }
+    .sub {
+      color: var(--sub);
+      margin-bottom: 26px;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto 24px auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 16/9;
+      background: #e5eceb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      transition: opacity .3s;
+      border-radius: var(--radius);
+    }
+    .carousel img.active { display: block; }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(35,39,46,0.42);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 1;
+      outline: none;
+      transition: background .2s;
+    }
+    .carousel-btn:hover { background: var(--accent);}
+    .carousel-btn.left { left: 14px; }
+    .carousel-btn.right { right: 14px; }
+    .carousel-dots {
+      position: absolute;
+      left: 50%; bottom: 10px;
+      transform: translateX(-50%);
+      display: flex; gap: 7px;
+    }
+    .carousel-dot {
+      width: 11px; height: 11px;
+      background: #fff;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      opacity: 0.6;
+      cursor: pointer;
+      transition: background .2s, opacity .2s;
+    }
+    .carousel-dot.active { background: var(--accent); opacity: 1; }
+
+    .desc {
+      margin: 24px 0 18px 0;
+      font-size: 1.12rem;
+      color: #3d3d3d;
+      line-height: 1.7;
+    }
+    .highlights {
+      margin: 0 0 22px 0;
+      padding: 0;
+      list-style: none;
+      color: var(--main);
+    }
+    .highlights li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 21px;
+    }
+    .highlights li:before {
+      content: '✓';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    .btn-group { margin-top: 22px; display: flex; gap: 1rem; }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 11px 28px;
+      border-radius: 99px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 10px 0 rgba(61,198,193,0.08);
+      transition: background .2s;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn.secondary {
+      background: var(--main);
+    }
+    .btn:hover { background: #1ba49e;}
+    .btn.secondary:hover { background: #444;}
+    @media (max-width: 640px) {
+      .container { padding: 14px 3vw 10px 3vw; }
+      .title { font-size: 1.4rem;}
+      .carousel { max-width: 99vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="index.html">&larr; Volver al portfolio</a>
+    <div class="title">ComidApp</div>
+    <div class="sub">Planificador de menús y recetas · 2024</div>
+    <!-- Carousel -->
+    <div class="carousel" id="carousel">
+      <button class="carousel-btn left" onclick="moveSlide(-1)" aria-label="Anterior">&#10094;</button>
+      <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=800&q=80" class="active" alt="Screenshot 1 ComidApp"/>
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Screenshot 2 ComidApp"/>
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Screenshot 3 ComidApp"/>
+      <button class="carousel-btn right" onclick="moveSlide(1)" aria-label="Siguiente">&#10095;</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+    <!-- Description -->
+    <div class="desc">
+      ComidApp es una plataforma web desarrollada en .NET Core y Angular que ayuda a las personas a planificar su alimentación semanal, generar listas de la compra automáticas y descubrir nuevas recetas personalizadas.
+      <br><br>
+      El proyecto está pensado para ser práctico, intuitivo y visualmente agradable, combinando desarrollo backend robusto, base de datos PostgreSQL y un frontend moderno.
+    </div>
+    <ul class="highlights">
+      <li>Gestión y recomendación inteligente de recetas.</li>
+      <li>Creación automática de listas de la compra.</li>
+      <li>Panel de usuario personalizable.</li>
+      <li>API REST en .NET Core y base de datos en Supabase.</li>
+      <li>UI hecha a medida en Angular, mobile first.</li>
+    </ul>
+    <div class="btn-group">
+      <a href="#" class="btn" target="_blank">Ver Demo</a>
+      <a href="#" class="btn secondary" target="_blank">Ver en GitHub</a>
+    </div>
+  </div>
+  <script>
+    // Carousel logic simple
+    const images = document.querySelectorAll('.carousel img');
+    const dotsContainer = document.getElementById('carouselDots');
+    let current = 0;
+
+    function showSlide(idx) {
+      images.forEach((img, i) => img.classList.toggle('active', i === idx));
+      Array.from(dotsContainer.children).forEach((dot, i) => dot.classList.toggle('active', i === idx));
+      current = idx;
+    }
+
+    function moveSlide(dir) {
+      let next = (current + dir + images.length) % images.length;
+      showSlide(next);
+    }
+
+    // Dots
+    function createDots() {
+      for (let i = 0; i < images.length; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.onclick = () => showSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+    createDots();
+  </script>
+</body>
+</html>
+
+

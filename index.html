@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sergio Coba — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:600,400|Lora:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main: #23272e;
+      --accent: #3dc6c1;
+      --bg: #fcfcfd;
+      --text: #222;
+      --sub: #888;
+      --card: #fff;
+      --shadow: 0 4px 32px 0 rgba(60,70,90,0.09);
+      --radius: 1.2rem;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 18px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 44px 24px 0 24px;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 48px;
+    }
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+    h1 {
+      margin: 0 0 8px 0;
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 2.6rem;
+      color: var(--main);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .subtitle {
+      color: var(--sub);
+      margin-bottom: 28px;
+      font-size: 1.05rem;
+      letter-spacing: .5px;
+    }
+    nav {
+      margin-bottom: 32px;
+      gap: 1.5rem;
+      display: flex;
+    }
+    nav a {
+      color: var(--main);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .2s;
+    }
+    nav a:hover, nav a.active {
+      border-bottom: 2px solid var(--accent);
+    }
+    section {
+      margin-bottom: 54px;
+    }
+    .section-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 1rem;
+      color: var(--sub);
+      margin: 0 0 20px 0;
+      font-weight: 600;
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px 30px;
+      margin-bottom: 24px;
+      transition: box-shadow .18s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 48px 0 rgba(60,70,90,0.13);
+    }
+    .project-title {
+      font-family: 'Lora', serif;
+      color: var(--main);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 7px 0;
+      letter-spacing: -.5px;
+    }
+    .project-desc {
+      color: #404040;
+      font-size: 1rem;
+      margin-bottom: 9px;
+      line-height: 1.55;
+    }
+    .project-link {
+      display: inline-block;
+      font-size: .98rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 3px;
+      transition: color .2s;
+    }
+    .project-link:hover { color: var(--main);}
+    footer {
+      text-align: center;
+      color: var(--sub);
+      font-size: .97rem;
+      margin: 48px 0 24px 0;
+      letter-spacing: 1px;
+    }
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 10px 28px;
+      border: none;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 16px;
+      box-shadow: 0 2px 8px 0 rgba(61,198,193,0.06);
+      transition: background .19s;
+    }
+    .btn:hover {
+      background: #1ba49e;
+    }
+    /* Responsive */
+    @media (max-width: 680px) {
+      .container { padding: 32px 8px 0 8px; }
+      .card { padding: 22px 12px; }
+      h1 { font-size: 2rem; }
+      nav { gap: 1rem; }
+      .avatar { width: 60px; height: 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar" class="avatar" />
+      <h1>Sergio Coba</h1>
+      <div class="subtitle">Fullstack Developer & UI Enthusiast</div>
+      <nav>
+        <a href="#proyectos" class="active">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <section id="proyectos">
+      <div class="section-title">Proyectos Destacados</div>
+
+      <div class="card">
+        <div class="project-title">ComidApp</div>
+        <div class="project-desc">App web para planificar menús semanales, crear listas de la compra y descubrir recetas personalizadas. Backend en .NET Core, frontend en Angular.</div>
+        <a href="/comidapp.html" class="project-link">Ver proyecto →</a>
+      </div>
+
+      <div class="card">
+        <div class="project-title">Minimal Task Manager</div>
+        <div class="project-desc">Gestor de tareas simple y minimalista para el día a día. Pensado para productividad real. Desarrollado en React.</div>
+        <a href="#" class="project-link">Ver proyecto →</a>
+      </div>
+
+      <div class="card">
+        <div class="project-title">API de reservas para coworking</div>
+        <div class="project-desc">REST API para gestionar reservas y usuarios en espacios de coworking. .NET, PostgreSQL y autenticación JWT.</div>
+        <a href="#" class="project-link">Ver proyecto →</a>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="section-title">Sobre mí</div>
+      <div class="card">
+        <p>Hola, soy Sergio, desarrollador apasionado por el diseño funcional y las soluciones limpias.<br>
+        Me gusta crear productos digitales bonitos, útiles y simples. Siempre abierto a nuevos retos y aprendizaje constante.</p>
+        <a class="btn" href="mailto:sergio@email.com">Contactar</a>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="section-title">Contacto</div>
+      <div class="card">
+        <p>¿Colaboramos? Escríbeme y te responderé en menos de 24h.<br>
+        <b>Email:</b> sergio@email.com</p>
+      </div>
+    </section>
+
+    <footer>
+      © 2024 Sergio Coba — Portfolio. Hecho a mano con cariño.
+    </footer>
+  </div>
+  <script>
+    // Navegación activa (opcional)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
